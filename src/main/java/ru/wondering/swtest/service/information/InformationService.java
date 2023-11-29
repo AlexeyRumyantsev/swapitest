@@ -19,6 +19,8 @@ import ru.wondering.swtest.model.info.Information;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class InformationService {
 
+    private final InformationServiceConfig config;
+
     public Information fetchInformation() {
         throw new NotImplementedException();
     }
