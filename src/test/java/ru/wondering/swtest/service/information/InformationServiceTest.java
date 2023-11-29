@@ -4,8 +4,10 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import ru.wondering.swtest.model.info.Information;
 import ru.wondering.swtest.model.info.StarshipInformation;
+import ru.wondering.swtest.service.swapi.SwapiService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
 class InformationServiceTest {
 
@@ -13,7 +15,9 @@ class InformationServiceTest {
     void testFetchInformationSuccess() {
         final InformationServiceConfig config = createDefaultConfig();
 
-        InformationService service = new InformationService(config);
+        SwapiService swapiService = mock(SwapiService.class);
+
+        InformationService service = new InformationService(swapiService, config);
         Information info = service.fetchInformation();
 
         Information expectedInfo = Information.builder()

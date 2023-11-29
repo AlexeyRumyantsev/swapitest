@@ -6,6 +6,7 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.wondering.swtest.model.info.Information;
+import ru.wondering.swtest.service.swapi.SwapiService;
 
 /**
  * StarWars information aggregation service.
@@ -19,6 +20,7 @@ import ru.wondering.swtest.model.info.Information;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class InformationService {
 
+    private final SwapiService swapiService;
     private final InformationServiceConfig config;
 
     public Information fetchInformation() {
