@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.wondering.swtest.model.info.Information;
 import ru.wondering.swtest.service.information.InformationService;
 
+import java.io.IOException;
+
 /**
  * Main information controller, provides aggregated view on Star Wars universe.
  * Recommended to use api/v1/information endpoint.
@@ -23,7 +25,7 @@ public class InformationController {
     private final InformationService informationService;
 
     @GetMapping("")
-    public Information getInformation() {
+    public Information getInformation() throws IOException {
         return informationService.fetchInformation();
     }
 }
